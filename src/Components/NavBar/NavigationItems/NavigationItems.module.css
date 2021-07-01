@@ -1,17 +1,21 @@
-.NavigationItems{
-    display: felx;
-    align-items: center;
+.NavigationItems {
+  display: felx;
+  align-items: center;
 }
-.NavigationItem{
-    font-size: 2rem;
-    color:#FF5A43;
-    background-color: white;
-    border:1px solid #FF5A43;
-    padding: 0.4em 1em;
-    border-radius: 0.3em;
-    margin: 0 0.5em;
-    transition: background-color  0.2s ease-out ;
+.NavigationItem {
+  font-size: 2rem;
+  color: #ff5a43;
+  background-color: white;
+  border: 1px solid #ff5a43;
+  padding: 0.4em 1em;
+  border-radius: 0.3em;
+  margin: 0 0.5em;
+  transition: background-color 0.2s ease-out;
 }
-.NavigationItem:hover{
-    background-color: hsl(0, 0%, 95%);
+
+.NavigationItem:hover {
+  background-color: hsl(0, 0%, 92%);
+}
+.NavigationItems a {
+  text-decoration: none;
 }

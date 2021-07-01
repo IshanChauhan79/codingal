@@ -2,12 +2,23 @@ import React, { useEffect, useState, useRef } from "react";
 import classes from "./App.module.css";
 import NavBar from "./Components/NavBar/NavBar";
 import EndClassModal from "./Components/EndClassModal/EndClassModal";
+import HomePage from './Components/HomePage/HomePage';
+import { Switch, Route } from "react-router-dom";
+import {useLocation} from 'react-router';
 
 function App() {
   const [timer, setTimer] = useState({ min: 10, sec: 0 });
+  const location=useLocation();
   // const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const interval = useRef();
+  useEffect(()=>{
+    if(location.pathname==="/"){
+      setTimer({ min: 10, sec: 0 })
+    }else{
+      clearInterval(interval.current);
+    }
+  },[location.pathname])
 
   useEffect(() => {
     interval.current = setInterval(() => {
@@ -33,13 +44,33 @@ function App() {
   const showModalHandler = () => {
     setShowModal((prev) => !prev);
   };
+  const modal = showModal ? (
+    <EndClassModal modalClose={showModalHandler} clearTimer={clearTimer} />
+  ) : null;
 
   return (
-    <div className="App">
-      <NavBar timer={timer} endClassClicked={showModalHandler} />
-      {showModal ? (
-        <EndClassModal modalClose={showModalHandler} clearTimer={clearTimer} />
-      ) : null}
+    <div className={classes.App}>
+      <Switch>
+        <Route path="/" exact>
+          <NavBar
+            showEndClass
+            timer={timer}
+            endClassClicked={showModalHandler}
+          />
+          {modal}
+          <HomePage/>
+        </Route>
+        <Route path="/passengers">
+          <NavBar />
+          <div>Passengers</div>
+        </Route>
+      
+      <Route path="/">
+          <NavBar />
+          <HomePage/>
+          <div className={classes.NotFound}>404 Page not Found</div>
+        </Route>
+      </Switch>
     </div>
   );
 }
