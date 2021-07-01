@@ -3,11 +3,9 @@ import classes from "./NavBar.module.css";
 import logo from "../../assets/images/codingal-logo.svg";
 import RedButton from "../UI/RedButton/RedButton";
 import Timer from "./Timer/Timer";
-import NavigationItems from './NavigationItems/NavigationItems';
+import NavigationItems from "./NavigationItems/NavigationItems";
+
 function NavBar(props) {
-  const buttonClicked = () => {
-    console.log("hello");
-  };
   return (
     <div className={classes.NavBar}>
       <div>
@@ -15,8 +13,8 @@ function NavBar(props) {
       </div>
       <div className={classes.Navigations}>
         <Timer min={props.timer.min} sec={props.timer.sec} />
-        <RedButton clicked={buttonClicked}>End Class</RedButton>
-        <NavigationItems/>
+        <RedButton clicked={props.endClassClicked}>End Class</RedButton>
+        <NavigationItems />
       </div>
     </div>
   );

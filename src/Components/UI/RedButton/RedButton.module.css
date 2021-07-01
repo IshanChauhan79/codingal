@@ -7,6 +7,7 @@
     border-radius: 0.3em;
     transition: filter  0.2s ease-in ;
     white-space: nowrap;
+    cursor: pointer;
 }
 .Button:hover{
     filter:brightness(130%)

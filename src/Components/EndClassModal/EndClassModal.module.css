@@ -1,0 +1,42 @@
+.EndClassModal {
+  position: fixed;
+  z-index: 30;
+  font-size: 1.6rem;
+  min-width: 18em;
+  padding: 2.4em;
+  width: min(90%, 50em);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  border-radius: 0.5em;
+}
+.EndClassModal h2 {
+  margin: 0;
+  margin-bottom: 0.7em;
+}
+.InputRadioConatainer div {
+  margin-bottom: 0.3em;
+}
+.InputRadioConatainer > div > div {
+  margin-bottom: 0.3em;
+  margin-left: 1em;
+}
+.InputRadio{
+  margin:1rem 0.5rem ;
+  cursor: default;
+}
+.InterruptOther{
+  margin:0.6rem;
+}
+.ModalButtons{
+  display: flex;
+  align-items:center;
+  font-size: 2rem;
+  margin:1em 0.5em 0;
+}
+.Cancel{
+  margin:0.5em;
+  cursor: pointer;
+}
