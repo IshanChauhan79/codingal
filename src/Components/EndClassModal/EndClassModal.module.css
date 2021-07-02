@@ -8,8 +8,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  color: black;
+  background-color: var(--clr-wb-100);
+  color: var(--clr-wb-900);
   border-radius: 0.5em;
 }
 .EndClassModal h2 {

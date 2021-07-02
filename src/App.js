@@ -2,24 +2,23 @@ import React, { useEffect, useState, useRef } from "react";
 import classes from "./App.module.css";
 import NavBar from "./Components/NavBar/NavBar";
 import EndClassModal from "./Components/EndClassModal/EndClassModal";
-import HomePage from './Components/HomePage/HomePage';
+import HomePage from "./Components/HomePage/HomePage";
+import Passengers from "./Components/Passengers/Passengers";
 import { Switch, Route } from "react-router-dom";
-import {useLocation} from 'react-router';
+import { useLocation } from "react-router";
 
 function App() {
   const [timer, setTimer] = useState({ min: 10, sec: 0 });
-  const location=useLocation();
-  // const [loading, setLoading] = useState(true);
+  const location = useLocation();
   const [showModal, setShowModal] = useState(false);
   const interval = useRef();
-  useEffect(()=>{
-    if(location.pathname==="/"){
-      setTimer({ min: 10, sec: 0 })
-    }else{
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setTimer({ min: 10, sec: 0 });
+    } else {
       clearInterval(interval.current);
     }
-  },[location.pathname])
-
+  }, [location.pathname]);
   useEffect(() => {
     interval.current = setInterval(() => {
       let min = timer.min;
@@ -36,7 +35,7 @@ function App() {
       setTimer({ min: min, sec: sec });
     }, 1000);
     return () => clearInterval(interval.current);
-  }, [timer.min, timer.sec]);
+  }, [timer.min, timer.sec, location.pathname]);
   const clearTimer = () => {
     clearInterval(interval.current);
     setShowModal(false);
@@ -44,6 +43,7 @@ function App() {
   const showModalHandler = () => {
     setShowModal((prev) => !prev);
   };
+
   const modal = showModal ? (
     <EndClassModal modalClose={showModalHandler} clearTimer={clearTimer} />
   ) : null;
@@ -58,16 +58,16 @@ function App() {
             endClassClicked={showModalHandler}
           />
           {modal}
-          <HomePage/>
+          <HomePage />
         </Route>
         <Route path="/passengers">
           <NavBar />
-          <div>Passengers</div>
+          <Passengers />
         </Route>
-      
-      <Route path="/">
+
+        <Route path="/">
           <NavBar />
-          <HomePage/>
+          <HomePage />
           <div className={classes.NotFound}>404 Page not Found</div>
         </Route>
       </Switch>

@@ -4,9 +4,9 @@
 }
 .NavigationItem {
   font-size: 2rem;
-  color: #ff5a43;
-  background-color: white;
-  border: 1px solid #ff5a43;
+  color: var(--clr-red-codingal);
+  background-color: var(--clr-wb-100);
+  border: 1px solid var(--clr-red-codingal);
   padding: 0.4em 1em;
   border-radius: 0.3em;
   margin: 0 0.5em;
@@ -14,7 +14,7 @@
 }
 
 .NavigationItem:hover {
-  background-color: hsl(0, 0%, 92%);
+  background-color: var(--clr-wb-100);
 }
 .NavigationItems a {
   text-decoration: none;

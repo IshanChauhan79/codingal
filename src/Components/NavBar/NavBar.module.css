@@ -1,7 +1,7 @@
 .NavBar{
-    background-color: white;
+    background-color: var(--clr-wb-100);
     z-index: 10;
-    position:absolute;
+    position:fixed;
     font-size: 1.6rem;
     padding:0.8em 2em;
     top:0;

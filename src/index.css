@@ -20,5 +20,8 @@ code {
   font-size: 62.5%;
   /* white and black--------- */
   --clr-wb-900: hsl(0, 0%, 0%);
+  --clr-wb-150: hsl(0, 0%, 92%);
   --clr-wb-100: hsl(0, 0%, 100%);
+  /* red ------------------------- */
+  --clr-red-codingal:hsl(7, 100%, 63%);
 }
