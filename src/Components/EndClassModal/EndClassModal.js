@@ -28,15 +28,18 @@ function EndClassModal(props) {
     { value: "I got disconnected", name: "InteruppetReason" },
     { value: "Other reason", name: "InteruppetReason" },
   ];
-  const {clearTimer,modalClose}={...props};
-  const closeModal = useCallback((end) => {
-    setCheckBoxValue("Completed Completed");
-    subCheckBoxValue("I got disconnected");
-    modalClose();
-    if (end === "end") {
-      clearTimer();
-    }
-  },[modalClose,clearTimer]);
+  const { clearTimer, modalClose } = { ...props };
+  const closeModal = useCallback(
+    (end) => {
+      setCheckBoxValue("Completed Completed");
+      subCheckBoxValue("I got disconnected");
+      modalClose();
+      if (end === "end") {
+        clearTimer();
+      }
+    },
+    [modalClose, clearTimer]
+  );
   const onCheckboxChange = (event) => {
     if (event.target.value === "Completed Completed") {
       setCheckBoxValue(event.target.value);
@@ -71,10 +74,8 @@ function EndClassModal(props) {
         nodeRef={textareaRef}
       >
         {(state) => (
-          <div ref={textareaRef}>
-            <div className={classes.InterruptOther}>
-              <textarea cols="40" rows="4" />
-            </div>
+          <div ref={textareaRef} className={classes.InterruptOther}>
+            <textarea cols="30" rows="4" className={classes.Textarea} />
           </div>
         )}
       </CSSTransition>

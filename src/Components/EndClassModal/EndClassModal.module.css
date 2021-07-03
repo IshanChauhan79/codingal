@@ -32,6 +32,17 @@
 .InterruptOther {
   margin: 0.6rem;
 }
+.Textarea{
+  border:1px solid grey;
+  border-radius: 5px;
+  padding:3px;
+  width:clamp(180px, 90%, 300px)
+  
+}
+.Textarea:focus{
+  outline: none;
+  box-shadow: 0 0 10px 0px grey;
+}
 .ModalButtons {
   display: flex;
   align-items: center;
