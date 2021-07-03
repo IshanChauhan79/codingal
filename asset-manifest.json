@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/codingal/static/css/main.dd6e9fe7.chunk.css",
-    "main.js": "/codingal/static/js/main.985b7c04.chunk.js",
-    "main.js.map": "/codingal/static/js/main.985b7c04.chunk.js.map",
+    "main.css": "/codingal/static/css/main.150010ca.chunk.css",
+    "main.js": "/codingal/static/js/main.b288520d.chunk.js",
+    "main.js.map": "/codingal/static/js/main.b288520d.chunk.js.map",
     "runtime-main.js": "/codingal/static/js/runtime-main.26ecb6c8.js",
     "runtime-main.js.map": "/codingal/static/js/runtime-main.26ecb6c8.js.map",
-    "static/js/2.258887ad.chunk.js": "/codingal/static/js/2.258887ad.chunk.js",
-    "static/js/2.258887ad.chunk.js.map": "/codingal/static/js/2.258887ad.chunk.js.map",
+    "static/js/2.e5fc1f1a.chunk.js": "/codingal/static/js/2.e5fc1f1a.chunk.js",
+    "static/js/2.e5fc1f1a.chunk.js.map": "/codingal/static/js/2.e5fc1f1a.chunk.js.map",
     "index.html": "/codingal/index.html",
-    "static/css/main.dd6e9fe7.chunk.css.map": "/codingal/static/css/main.dd6e9fe7.chunk.css.map",
-    "static/js/2.258887ad.chunk.js.LICENSE.txt": "/codingal/static/js/2.258887ad.chunk.js.LICENSE.txt",
+    "static/css/main.150010ca.chunk.css.map": "/codingal/static/css/main.150010ca.chunk.css.map",
+    "static/js/2.e5fc1f1a.chunk.js.LICENSE.txt": "/codingal/static/js/2.e5fc1f1a.chunk.js.LICENSE.txt",
     "static/media/codingal-logo.0dcdda81.svg": "/codingal/static/media/codingal-logo.0dcdda81.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.26ecb6c8.js",
-    "static/js/2.258887ad.chunk.js",
-    "static/css/main.dd6e9fe7.chunk.css",
-    "static/js/main.985b7c04.chunk.js"
+    "static/js/2.e5fc1f1a.chunk.js",
+    "static/css/main.150010ca.chunk.css",
+    "static/js/main.b288520d.chunk.js"
   ]
 }
