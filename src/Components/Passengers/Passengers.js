@@ -28,9 +28,7 @@ function Passengers() {
     [loading, hasMore]
   );
   const passengersList = passengers.map((passenger, index) => {
-    let element = [
-        <Passenger passenger={passenger}  key={passenger._id} />
-    ];
+    let element = [<Passenger passenger={passenger} key={passenger._id} />];
     if (passengers.length === index + 1) {
       element = [
         ...element,

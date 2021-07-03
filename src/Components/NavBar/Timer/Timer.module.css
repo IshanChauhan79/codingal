@@ -1,6 +1,5 @@
-.Timer{
-    font-size: 2rem;
-    padding:0.5em;
-    color:var(--clr-red-codingal);
-    
+.Timer {
+  font-size: 2rem;
+  padding: 0.5em;
+  color: var(--clr-red-codingal);
 }

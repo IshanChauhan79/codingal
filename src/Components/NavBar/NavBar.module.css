@@ -1,22 +1,63 @@
-.NavBar{
-    background-color: var(--clr-wb-100);
-    z-index: 10;
-    position:fixed;
-    font-size: 1.6rem;
-    padding:0.8em 2em;
-    top:0;
-    left:0;
-    right:0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.NavBar {
+  background-color: var(--clr-wb-100);
+  z-index: 10;
+  position: fixed;
+  font-size: 1.6rem;
+  padding: 0.8em 2em;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.LogoImg{
-    height:2.5em;
-    margin-right: 0.6em;
+.LogoImg {
+  height: 2.5em;
+  margin-right: 0.6em;
 }
-.Navigations{
+.Navigations {
+  display: flex;
+  align-items: center;
+}
+.Menu {
+  display: none;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--clr-red-codingal);
+  border-radius: 0.5rem;
+  margin-left: 1em;
+}
+.MenuTImer {
+  display: flex;
+}
+.MenuClose {
+  position: absolute;
+  font-size: 2.4rem;
+  top: 0;
+  right: calc(0px + 2rem);
+  color: gray;
+  transition: all 0.3s ease-in-out;
+  /* margin:2rem; */
+}
+.MenuClose:hover {
+  transform: rotate(180deg);
+}
+@media screen and (max-width: 36em) {
+  .NavLink {
+    display: none;
+  }
+  .NavBar {
+    padding: 0.8em 1em;
+  }
+
+  .Menu {
     display: flex;
-    align-items: center;
+  }
+}
+@media screen and (max-width: 25em) {
+  .Navigations {
+    display: none;
+  }
 }

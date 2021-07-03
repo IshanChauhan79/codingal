@@ -1,14 +1,20 @@
-.Button{
-    color:white;
-    background-color: var(--clr-red-codingal);
-    font-size: 1.8rem;
-    padding: 0.4em 1em;
-    border: 1px solid var(--clr-red-codingal);
-    border-radius: 0.3em;
-    transition: filter  0.2s ease-in ;
-    white-space: nowrap;
-    cursor: pointer;
+.Button {
+  color: white;
+  background-color: var(--clr-red-codingal);
+  font-size: 1.8rem;
+  padding: 0.4em 1em;
+  border: 1px solid var(--clr-red-codingal);
+  border-radius: 0.3em;
+  transition: filter 0.2s ease-in;
+  white-space: nowrap;
+  cursor: pointer;
 }
-.Button:hover{
-    filter:brightness(130%)
+.Button:hover {
+  filter: brightness(130%);
+}
+@media screen and (max-width: 36em) {
+  .Button {
+    font-size: 1.6rem;
+    padding: 0.4em 0.6em;
+  }
 }

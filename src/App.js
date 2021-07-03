@@ -4,6 +4,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import EndClassModal from "./Components/EndClassModal/EndClassModal";
 import HomePage from "./Components/HomePage/HomePage";
 import Passengers from "./Components/Passengers/Passengers";
+
 import { Switch, Route } from "react-router-dom";
 import { useLocation } from "react-router";
 

@@ -1,17 +1,16 @@
-.App{
-    padding-top:8rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.App {
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.NotFound{
-    font-size: 4rem;
+.NotFound {
+  font-size: 4rem;
+  margin-top: 0.5em;
+}
+@media screen and (max-width: 32em) {
+  .NotFound {
+    font-size: 2.5rem;
     margin-top: 0.5em;
-}
-@media screen and (max-width: 500px) {
-    .NotFound{
-        font-size: 2.5rem;
-        margin-top: 0.5em;
-    }
-    
+  }
 }

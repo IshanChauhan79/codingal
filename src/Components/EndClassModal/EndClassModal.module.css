@@ -23,20 +23,20 @@
   margin-bottom: 0.3em;
   margin-left: 1em;
 }
-.InputRadio{
-  margin:1rem 0.5rem ;
+.InputRadio {
+  margin: 1rem 0.5rem;
   cursor: default;
 }
-.InterruptOther{
-  margin:0.6rem;
+.InterruptOther {
+  margin: 0.6rem;
 }
-.ModalButtons{
+.ModalButtons {
   display: flex;
-  align-items:center;
+  align-items: center;
   font-size: 2rem;
-  margin:1em 0.5em 0;
+  margin: 1em 0.5em 0;
 }
-.Cancel{
-  margin:0.5em;
+.Cancel {
+  margin: 0.5em;
   cursor: pointer;
 }

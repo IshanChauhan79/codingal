@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family:sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
@@ -23,5 +23,5 @@ code {
   --clr-wb-150: hsl(0, 0%, 92%);
   --clr-wb-100: hsl(0, 0%, 100%);
   /* red ------------------------- */
-  --clr-red-codingal:hsl(7, 100%, 63%);
+  --clr-red-codingal: hsl(7, 100%, 63%);
 }

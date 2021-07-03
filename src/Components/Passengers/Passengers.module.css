@@ -1,8 +1,8 @@
-.Passengers{
-    width:min(90%,100rem);
-    min-width: 30rem;
+.Passengers {
+  width: min(90%, 100rem);
+  min-width: 30rem;
 }
-.Spinner{
-    height:20rem;
-    padding:1rem;
+.Spinner {
+  height: 20rem;
+  padding: 1rem;
 }

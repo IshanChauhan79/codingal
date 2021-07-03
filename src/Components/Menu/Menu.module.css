@@ -1,0 +1,17 @@
+.Menu {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  /* left:-110%; */
+  background-color: white;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  padding-top: 4rem;
+  align-items: center;
+  flex-direction: column;
+}
+.Menu > div {
+  margin: 2rem 0;
+}

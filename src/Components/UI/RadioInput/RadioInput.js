@@ -6,7 +6,7 @@ function RadioInput(props) {
         type="radio"
         value={props.value}
         name={props.name}
-        onChange={(event)=>props.changed(event)}
+        onChange={(event) => props.changed(event)}
         defaultChecked={props.defaultChecked}
       />
       <span>{props.value}</span>

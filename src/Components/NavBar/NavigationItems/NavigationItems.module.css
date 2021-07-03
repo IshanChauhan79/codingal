@@ -14,8 +14,10 @@
 }
 
 .NavigationItem:hover {
-  background-color: var(--clr-wb-100);
+  background-color: rgb(0, 0, 0, 0.1);
 }
 .NavigationItems a {
+  color: var(--clr-red-codingal);
+
   text-decoration: none;
 }

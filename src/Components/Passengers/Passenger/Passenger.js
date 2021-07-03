@@ -7,15 +7,28 @@ function Passenger(props) {
   return (
     <div className={classes.Passenger}>
       <div className={classes.Data}>
-        <div className={classes.Name}><span>Passenger:</span> {passenger.name}</div>
-        <div className={classes.Name}><span>Trips: </span>{passenger.trips}</div>
-        <div className={classes.Name}><span>Airline: </span>{airline.name}</div>
-        <div className={classes.Name}><span>Country: </span>{airline.country}</div>
-
-
+        <div className={classes.Name}>
+          <span>Passenger:</span> {passenger.name}
+        </div>
+        <div className={classes.Name}>
+          <span>Trips: </span>
+          {passenger.trips}
+        </div>
+        <div className={classes.Name}>
+          <span>Airline: </span>
+          {airline.name}
+        </div>
+        <div className={classes.Name}>
+          <span>Country: </span>
+          {airline.country}
+        </div>
       </div>
       <div className={classes.LogoImgCont}>
-        <img src={airline.logo} alt={airline.name} className={classes.LogoImg}></img>
+        <img
+          src={airline.logo}
+          alt={airline.name}
+          className={classes.LogoImg}
+        ></img>
       </div>
     </div>
   );
