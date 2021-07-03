@@ -14,10 +14,14 @@ function Passengers() {
     size
   );
   const observer = useRef();
+
+  // whenever the last elemt appears om screen increnge page number so new data can be loaded
   const lastPassengerRef = useCallback(
     (node) => {
       if (loading) return;
+      //disconnect the previously connectted ement to ref "Observer"
       if (observer.current) observer.current.disconnect();
+      // set  ref current to newintersectingObserver when present  on screen
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           setPageNumber((prev) => prev + 1);
@@ -27,6 +31,7 @@ function Passengers() {
     },
     [loading, hasMore]
   );
+
   const passengersList = passengers.map((passenger, index) => {
     let element = [<Passenger passenger={passenger} key={passenger._id} />];
     if (passengers.length === index + 1) {

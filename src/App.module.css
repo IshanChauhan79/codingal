@@ -8,6 +8,7 @@
   font-size: 4rem;
   margin-top: 0.5em;
 }
+
 @media screen and (max-width: 32em) {
   .NotFound {
     font-size: 2.5rem;

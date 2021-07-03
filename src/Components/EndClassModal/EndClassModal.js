@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import classes from "./EndClassModal.module.css";
 import RedButton from "../UI/RedButton/RedButton";
 import RadioInput from "../UI/RadioInput/RadioInput";
+import CSSTransition from "react-transition-group/CSSTransition";
+import modalTransition from "./modalTransition.module.css";
+import radioTransition from "./radioTransition.module.css";
+
+//endClass modal with animation---------------------------------
 
 function EndClassModal(props) {
+  const modalRef = useRef();
+  const radioRef = useRef();
+  const textareaRef = useRef();
+
   const [checkBoxValue, setCheckBoxValue] = useState("Completed Completed");
   const [subcheckBoxValue, subCheckBoxValue] = useState("I got disconnected");
 
@@ -19,8 +28,20 @@ function EndClassModal(props) {
     { value: "I got disconnected", name: "InteruppetReason" },
     { value: "Other reason", name: "InteruppetReason" },
   ];
-
+  const closeModal = (end) => {
+    setCheckBoxValue("Completed Completed");
+    subCheckBoxValue("I got disconnected");
+    props.modalClose();
+    if (end === "end") {
+      props.clearTimer();
+    }
+  };
   const onCheckboxChange = (event) => {
+    if (event.target.value === "Completed Completed") {
+      setCheckBoxValue(event.target.value);
+      subCheckBoxValue("I got disconnected");
+      return;
+    }
     setCheckBoxValue(event.target.value);
     console.log(event.target.value);
   };
@@ -29,6 +50,7 @@ function EndClassModal(props) {
     console.log(event.target.value);
   };
 
+  // if class was inturrepted selcted show the sub categories
   const InterruptReasonElementList = InterruptReason.map((item) => (
     <div className={classes.InputRadio} key={item.value}>
       <RadioInput
@@ -37,14 +59,28 @@ function EndClassModal(props) {
         changed={onInterruptChange}
         defaultChecked={item.value === "I got disconnected"}
       />
-      {subcheckBoxValue === "Other reason" && item.value === "Other reason" ? (
-        <div className={classes.InterruptOther}>
-          <textarea cols="40" rows="4" />
-        </div>
-      ) : null}
+      <CSSTransition
+        in={
+          subcheckBoxValue === "Other reason" && item.value === "Other reason"
+        }
+        mountOnEnter
+        unmountOnExit
+        timeout={500}
+        classNames={radioTransition}
+        nodeRef={textareaRef}
+      >
+        {(state) => (
+          <div ref={textareaRef}>
+            <div className={classes.InterruptOther}>
+              <textarea cols="40" rows="4" />
+            </div>
+          </div>
+        )}
+      </CSSTransition>
     </div>
   ));
 
+  // show the main 2 categories with codition to show shub categories
   const EndClassElementList = EndClassList.map((item) => {
     return (
       <div className={classes.InputRadio} key={item.value}>
@@ -54,28 +90,48 @@ function EndClassModal(props) {
           changed={onCheckboxChange}
           defaultChecked={item.value === "Completed Completed"}
         />
-        {checkBoxValue === "Class interrupted/aborted" &&
-        item.value === "Class interrupted/aborted"
-          ? InterruptReasonElementList
-          : null}
+        <CSSTransition
+          in={
+            checkBoxValue === "Class interrupted/aborted" &&
+            item.value === "Class interrupted/aborted"
+          }
+          mountOnEnter
+          unmountOnExit
+          timeout={500}
+          classNames={radioTransition}
+          nodeRef={radioRef}
+        >
+          {(state) => <div ref={radioRef}>{InterruptReasonElementList}</div>}
+        </CSSTransition>
       </div>
     );
   });
   return (
     <React.Fragment>
-      <Backdrop clicked={props.modalClose} />
-      <div className={classes.EndClassModal}>
-        <h2>Select a reason to end class</h2>
-        <div className={classes.InputRadioConatainer}>
-          {EndClassElementList}
-        </div>
-        <div className={classes.ModalButtons}>
-          <RedButton clicked={props.clearTimer}>End Class</RedButton>
-          <div className={classes.Cancel} onClick={props.modalClose}>
-            Cancel
+      {props.showModal ? <Backdrop clicked={closeModal} /> : null}
+      <CSSTransition
+        in={props.showModal}
+        mountOnEnter
+        unmountOnExit
+        timeout={300}
+        classNames={modalTransition}
+        nodeRef={modalRef}
+      >
+        {(state) => (
+          <div className={classes["EndClassModal"]} ref={modalRef}>
+            <h2>Select a reason to end class</h2>
+            <div className={classes.InputRadioConatainer}>
+              {EndClassElementList}
+            </div>
+            <div className={classes.ModalButtons}>
+              <RedButton clicked={() => closeModal("end")}>End Class</RedButton>
+              <div className={classes.Cancel} onClick={closeModal}>
+                Cancel
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )}
+      </CSSTransition>
     </React.Fragment>
   );
 }

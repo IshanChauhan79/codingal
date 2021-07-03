@@ -5,13 +5,14 @@
   min-width: 18em;
   padding: 2.4em;
   width: min(90%, 50em);
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translate(-50%,-50%); 
   background-color: var(--clr-wb-100);
   color: var(--clr-wb-900);
   border-radius: 0.5em;
 }
+
 .EndClassModal h2 {
   margin: 0;
   margin-bottom: 0.7em;
@@ -26,6 +27,7 @@
 .InputRadio {
   margin: 1rem 0.5rem;
   cursor: default;
+  overflow: hidden;
 }
 .InterruptOther {
   margin: 0.6rem;

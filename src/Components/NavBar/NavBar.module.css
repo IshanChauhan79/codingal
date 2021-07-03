@@ -12,10 +12,6 @@
   align-items: center;
 }
 
-.LogoImg {
-  height: 2.5em;
-  margin-right: 0.6em;
-}
 .Navigations {
   display: flex;
   align-items: center;

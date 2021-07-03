@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import classes from "./Menu.module.css";
 
+// teleport the menu to body using createPortal
 function Menu(props) {
   return createPortal(
     [

@@ -4,6 +4,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import EndClassModal from "./Components/EndClassModal/EndClassModal";
 import HomePage from "./Components/HomePage/HomePage";
 import Passengers from "./Components/Passengers/Passengers";
+// import CSSTransition from "react-transition-group/CSSTransition";
 
 import { Switch, Route } from "react-router-dom";
 import { useLocation } from "react-router";
@@ -13,13 +14,8 @@ function App() {
   const location = useLocation();
   const [showModal, setShowModal] = useState(false);
   const interval = useRef();
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setTimer({ min: 10, sec: 0 });
-    } else {
-      clearInterval(interval.current);
-    }
-  }, [location.pathname]);
+
+  // calculating timer --------------------------------------
   useEffect(() => {
     interval.current = setInterval(() => {
       let min = timer.min;
@@ -37,6 +33,17 @@ function App() {
     }, 1000);
     return () => clearInterval(interval.current);
   }, [timer.min, timer.sec, location.pathname]);
+
+  // whnever route changers restart the timer when back to home page
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setTimer({ min: 10, sec: 0 });
+    } else {
+      clearInterval(interval.current);
+    }
+  }, [location.pathname]);
+
+  // clear timer ----------------------
   const clearTimer = () => {
     clearInterval(interval.current);
     setShowModal(false);
@@ -45,9 +52,13 @@ function App() {
     setShowModal((prev) => !prev);
   };
 
-  const modal = showModal ? (
-    <EndClassModal modalClose={showModalHandler} clearTimer={clearTimer} />
-  ) : null;
+  const modal = (
+    <EndClassModal
+      showModal={showModal}
+      modalClose={showModalHandler}
+      clearTimer={clearTimer}
+    />
+  );
 
   return (
     <div className={classes.App}>

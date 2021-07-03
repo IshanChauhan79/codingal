@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import classes from "./NavBar.module.css";
-import logo from "../../assets/images/codingal-logo.svg";
 import RedButton from "../UI/RedButton/RedButton";
 import Timer from "./Timer/Timer";
 import NavigationItems from "./NavigationItems/NavigationItems";
-import { Link } from "react-router-dom";
 import Menu from "../Menu/Menu";
+import Logo from "../Logo/Logo";
 
+//display the navigation bar and the menu for screen and
 function NavBar(props) {
   const [showMenu, setShowMenu] = useState(false);
   const endClass = props.showEndClass ? (
@@ -23,6 +23,7 @@ function NavBar(props) {
       <div className={classes.MenuClose} onClick={menuClicked}>
         X
       </div>
+      <Logo />
       <div className={classes.MenuTImer} onClick={menuClicked}>
         {timer}
         {endClass}
@@ -35,11 +36,7 @@ function NavBar(props) {
 
   return (
     <div className={classes.NavBar}>
-      <div>
-        <Link to="/">
-          <img src={logo} className={classes.LogoImg} alt="Codingal" />
-        </Link>
-      </div>
+      <Logo />
       <div className={classes.Navigations}>
         {timer}
         {endClass}

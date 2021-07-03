@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Passenger.module.css";
 
+//return the passenger cards
 function Passenger(props) {
   const passenger = props.passenger;
   const airline = props.passenger.airline;

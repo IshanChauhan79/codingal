@@ -7,6 +7,8 @@ function usePassengers(pageNumber, size) {
   const [error, setError] = useState(false);
   const [hasMore, setHasMore] = useState(false);
   const [firstLoad, setFirstLoad] = useState(true);
+  
+  // get the data and return in the form of object
   useEffect(() => {
     setLoading(true);
     setError(false);
