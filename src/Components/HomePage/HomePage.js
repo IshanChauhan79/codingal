@@ -2,7 +2,7 @@ import React from "react";
 // import classes from "./HomePage.module.css";
 import codingal from "../../assets/images/codingal-logo.svg";
 
-function Button(props) {
+function Button() {
   return (
     <img
       src={codingal}
@@ -12,4 +12,4 @@ function Button(props) {
   );
 }
 
-export default Button;
+export default React.memo(Button);

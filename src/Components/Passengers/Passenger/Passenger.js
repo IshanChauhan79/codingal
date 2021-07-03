@@ -35,4 +35,4 @@ function Passenger(props) {
   );
 }
 
-export default Passenger;
+export default React.memo(Passenger);

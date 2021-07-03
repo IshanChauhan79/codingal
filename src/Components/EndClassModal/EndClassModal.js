@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo, useCallback } from "react";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import classes from "./EndClassModal.module.css";
 import RedButton from "../UI/RedButton/RedButton";
@@ -28,14 +28,15 @@ function EndClassModal(props) {
     { value: "I got disconnected", name: "InteruppetReason" },
     { value: "Other reason", name: "InteruppetReason" },
   ];
-  const closeModal = (end) => {
+  const {clearTimer,modalClose}={...props};
+  const closeModal = useCallback((end) => {
     setCheckBoxValue("Completed Completed");
     subCheckBoxValue("I got disconnected");
-    props.modalClose();
+    modalClose();
     if (end === "end") {
-      props.clearTimer();
+      clearTimer();
     }
-  };
+  },[modalClose,clearTimer]);
   const onCheckboxChange = (event) => {
     if (event.target.value === "Completed Completed") {
       setCheckBoxValue(event.target.value);
@@ -106,9 +107,24 @@ function EndClassModal(props) {
       </div>
     );
   });
+  const button = useMemo(
+    () => (
+      <div className={classes.ModalButtons}>
+        <RedButton clicked={() => closeModal("end")}>End Class</RedButton>
+        <div className={classes.Cancel} onClick={closeModal}>
+          Cancel
+        </div>
+      </div>
+    ),
+    [closeModal]
+  );
+  const backdrop = useMemo(
+    () => <Backdrop clicked={closeModal} />,
+    [closeModal]
+  );
   return (
     <React.Fragment>
-      {props.showModal ? <Backdrop clicked={closeModal} /> : null}
+      {props.showModal ? backdrop : null}
       <CSSTransition
         in={props.showModal}
         mountOnEnter
@@ -123,12 +139,7 @@ function EndClassModal(props) {
             <div className={classes.InputRadioConatainer}>
               {EndClassElementList}
             </div>
-            <div className={classes.ModalButtons}>
-              <RedButton clicked={() => closeModal("end")}>End Class</RedButton>
-              <div className={classes.Cancel} onClick={closeModal}>
-                Cancel
-              </div>
-            </div>
+            {button}
           </div>
         )}
       </CSSTransition>

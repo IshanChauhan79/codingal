@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useMemo } from "react";
 import classes from "./Passengers.module.css";
 import usePassengers from "../../hooks/usePassengers";
 import Passenger from "./Passenger/Passenger";
@@ -13,6 +13,7 @@ function Passengers() {
     pageNumber,
     size
   );
+
   const observer = useRef();
 
   // whenever the last elemt appears om screen increnge page number so new data can be loaded
@@ -32,22 +33,21 @@ function Passengers() {
     [loading, hasMore]
   );
 
-  const passengersList = passengers.map((passenger, index) => {
-    let element = [<Passenger passenger={passenger} key={passenger._id} />];
-    if (passengers.length === index + 1) {
-      element = [
-        ...element,
-        <div
-          className={classes.Spinner}
-          ref={lastPassengerRef}
-          key={passenger._id + "ksdhf"}
-        >
-          <Spinner />
-        </div>,
-      ];
-    }
-    return element;
-  });
+  let passengersList = useMemo(
+    () =>
+      passengers.map((passenger) => (
+        <Passenger passenger={passenger} key={passenger._id} />
+      )),
+    [passengers]
+  );
+  passengersList = [
+    ...passengersList,
+    passengersList.length > 0 && (
+      <div className={classes.Spinner} ref={lastPassengerRef} key={"ksdhf"}>
+        <Spinner />
+      </div>
+    ),
+  ];
 
   return (
     <div className={classes.Passengers}>

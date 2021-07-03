@@ -5,4 +5,4 @@ function Spinner() {
   return <div className={classes.loader}>Loading...</div>;
 }
 
-export default Spinner;
+export default React.memo(Spinner);

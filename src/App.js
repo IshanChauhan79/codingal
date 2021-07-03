@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import classes from "./App.module.css";
 import NavBar from "./Components/NavBar/NavBar";
 import EndClassModal from "./Components/EndClassModal/EndClassModal";
@@ -48,17 +48,17 @@ function App() {
     clearInterval(interval.current);
     setShowModal(false);
   };
-  const showModalHandler = () => {
+  const showModalHandler = useCallback(() => {
     setShowModal((prev) => !prev);
-  };
+  },[]);
 
-  const modal = (
+  const modal = useMemo(()=>(
     <EndClassModal
       showModal={showModal}
       modalClose={showModalHandler}
       clearTimer={clearTimer}
     />
-  );
+  ),[showModal,showModalHandler]);
 
   return (
     <div className={classes.App}>
