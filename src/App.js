@@ -72,7 +72,7 @@ function App() {
           {modal}
           <HomePage />
         </Route>
-        <Route path="/passengers">
+        <Route path="/passengers" exact>
           <NavBar />
           <Passengers />
         </Route>

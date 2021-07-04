@@ -69,7 +69,7 @@ function EndClassModal(props) {
         }
         mountOnEnter
         unmountOnExit
-        timeout={500}
+        timeout={300}
         classNames={radioTransition}
         nodeRef={textareaRef}
       >
@@ -99,7 +99,7 @@ function EndClassModal(props) {
           }
           mountOnEnter
           unmountOnExit
-          timeout={500}
+          timeout={300}
           classNames={radioTransition}
           nodeRef={radioRef}
         >

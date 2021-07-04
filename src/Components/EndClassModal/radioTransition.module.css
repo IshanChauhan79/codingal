@@ -5,12 +5,12 @@
 .enterActive {
   max-height: 200px;
 
-  transition: all 0.5s ease-in-out;
+  transition: max-height 0.3s ease-in-out, opacityt 0.3s ease-in-out;
 }
 .exit {
   max-height: 200px;
 }
 .exitActive {
   max-height: 0px;
-  transition: all 0.5s ease-in-out;
+  transition: max-height 0.3s ease-in-out, opacityt 0.3s ease-in-out;
 }
